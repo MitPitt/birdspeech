@@ -1,6 +1,6 @@
 # Speech to Birdsong converter
 
-Turn a recording of speech into the song of a blackbird.
+Turn a recording of speech into the song of a blackbird. Try demo at https://birdspeech.mitpit.com/
 
 This project is a recreation of [windytan's `blackbird.pl`](https://gist.github.com/windytan/80781ca72c357bb61de8a7b70faea48f)
 and the accompanying blog post, ["Speech to birdsong conversion"](https://www.windytan.com/2021/03/speech-to-birdsong-conversion.html).
