@@ -202,7 +202,6 @@ public/worklets/birdsong-processor.wasm  # compiled core, committed
 public/worklets/birdsong-processor-wasm.js # AudioWorklet wrapper for the core
 public/worklets/birdsong-processor.js    # optimized JS fallback engine
 src/pages/index.astro                    # web UI, audio graph and controls
-specimen/                                # example inputs
 ```
 
 ## Development
