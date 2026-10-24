@@ -173,7 +173,7 @@ manually) to fit the speaker first.
 
 ```mermaid
 flowchart LR
-  media["&lt;video&gt;/&lt;audio&gt; element"] --> dry[dryGain]
+  media["audio"] --> dry[dryGain]
   media --> eq[Input EQ]
   eq --> work[AudioWorklet<br/>birdsong-processor]
   work --> wet[wetGain]
