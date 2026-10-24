@@ -1,0 +1,33 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "thumbnails": "node scripts/thumbnails.mjs",
+    "wasm": "node scripts/build-wasm.mjs",
+    "predev": "node scripts/thumbnails.mjs",
+    "prebuild": "node scripts/thumbnails.mjs",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@breezystack/lamejs": "^1.2.7",
+    "@fontsource/pt-mono": "^5.3.0",
+    "@fontsource/pt-sans": "^5.3.0",
+    "@fontsource/pt-sans-caption": "^5.3.0",
+    "@fontsource/pt-sans-narrow": "^5.3.0",
+    "@fontsource/pt-serif": "^5.3.0",
+    "@fontsource/pt-serif-caption": "^5.3.0",
+    "astro": "^7.3.5",
+    "biomorphic-ui": "github:MitPitt/biomorphic-ui#aaaac0033a7980919916b7014b943b275cf0ec2b",
+    "showcqt": "^2.2.2"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

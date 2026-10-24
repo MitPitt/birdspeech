@@ -1,0 +1,49 @@
+<section class="eqwrap">
+	<div id="vizwrap" class="vizwrap">
+		<canvas id="viz" class="viz"></canvas>
+		<div class="vizhint" aria-hidden="true">
+			<strong>Input EQ</strong>
+			<span>drag anywhere to draw the curve</span>
+		</div>
+		<div class="vizcontrols">
+			<label class="check"
+				><input id="eq-on" type="checkbox" checked /> EQ ON</label
+			>
+			<label class="check" title="Include the EQ curve when randomizing"
+				><input id="rand-eq" type="checkbox" checked /> TO RND</label
+			>
+			<button
+				id="eq-reset"
+				class="eqreset"
+				type="button"
+				title="Reset EQ"
+				aria-label="Reset EQ"
+				><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"
+					><path
+						d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="3"
+						stroke-linecap="square"></path><path
+						d="M3 3v5h5"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="3"
+						stroke-linecap="square"></path></svg
+				></button
+			>
+		</div>
+		<div class="hzaxis" aria-hidden="true">
+			<span class="first">20</span>
+			<span style="left:13.26%">50</span>
+			<span style="left:23.30%">100</span>
+			<span style="left:33.33%">200</span>
+			<span style="left:46.60%">500</span>
+			<span style="left:56.63%">1k</span>
+			<span style="left:66.67%">2k</span>
+			<span style="left:79.93%">5k</span>
+			<span style="left:89.96%">10k</span>
+			<span class="last">20k</span>
+		</div>
+	</div>
+</section>

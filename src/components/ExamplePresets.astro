@@ -1,0 +1,35 @@
+---
+const BASE = import.meta.env.BASE_URL;
+const examples = [
+	{ name: "parade", label: "black parade" },
+	{ name: "house", label: "house md" },
+	{ name: "hams", label: "steamed hams" },
+	{ name: "baka", label: "baka mitai" },
+	{ name: "drums", label: "drum" },
+	{ name: "koth", label: "koth" },
+	{ name: "undertale", label: "undertale" },
+];
+---
+
+<section class="examples" aria-label="Example presets">
+	<div class="grouphead">
+		<span>Playlist</span>
+		<span class="randlabel">load example and its settings</span>
+	</div>
+	<div class="examplegrid">
+		{
+			examples.map((example) => (
+				<button class="example" data-example={example.name} type="button">
+					<img
+						src={`${BASE}examples/${example.name}.jpg`}
+						alt=""
+						loading="lazy"
+						decoding="async"
+					/>
+					<span class="examplename">{example.label}</span>
+				</button>
+			))
+		}
+		<slot />
+	</div>
+</section>

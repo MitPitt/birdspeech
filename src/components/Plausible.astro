@@ -1,0 +1,39 @@
+---
+export interface Props {
+    domain?: string;
+    proxySrc?: string;
+    proxyApi?: string;
+    fallbackSrc?: string;
+}
+
+const {
+    domain = "birdspeech.mitpit.com",
+    proxySrc = "/js/metrics.js",
+    proxyApi = "/api/event",
+    fallbackSrc = "https://p.mitpit.com/js/script.file-downloads.outbound-links.js",
+} = Astro.props;
+---
+
+<script is:inline define:vars={{ domain, proxySrc, proxyApi, fallbackSrc }}>
+    window.plausible =
+        window.plausible ||
+        function () {
+            (window.plausible.q = window.plausible.q || []).push(arguments);
+        };
+
+    {
+        const loadScript = (src, api) => {
+            const s = document.createElement("script");
+            s.defer = true;
+            s.src = src;
+            s.setAttribute("data-domain", domain);
+            if (api) s.setAttribute("data-api", api);
+            document.head.appendChild(s);
+            return s;
+        };
+
+        loadScript(proxySrc, proxyApi).onerror = () => {
+            loadScript(fallbackSrc);
+        };
+    }
+</script>

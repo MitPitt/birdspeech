@@ -1,0 +1,90 @@
+<section
+	class="faq"
+	aria-label="Frequently asked questions"
+	data-bio="spikes"
+	data-bio-group="faq"
+>
+	<div class="grouphead">
+		<span>FAQ</span>
+	</div>
+
+	<details class="faqitem">
+		<summary>
+			<span>What does it do?</span>
+			<span class="faqsign" aria-hidden="true"></span>
+		</summary>
+		<p>
+			This site turns human voice into birdsong. It's inspired by <a
+				href="https://www.windytan.com/2021/03/speech-to-birdsong-conversion.html"
+				>windytan's Blackbird experiment</a
+			>
+		</p>
+	</details>
+
+	<details class="faqitem">
+		<summary>
+			<span>How does it work?</span>
+			<span class="faqsign" aria-hidden="true"></span>
+		</summary>
+		<p>
+			A voice is a stack of harmonics over a fundamental pitch. The
+			converter shifts that fundamental down to near 0 Hz, low-pass
+			filters it to isolate it, and then uses FM demodulation to track its
+			instantaneous frequency. AM demodulation on the same signal gives
+			the amplitude envelope. The original harmonics are thrown away. The
+			output is a freshly synthesized tone six times higher, shaped by the
+			tracked pitch and envelope.
+		</p>
+		<p>
+			That is why it reproduces melody, rhythm and inflection so well but
+			not words: only F0 and loudness survive, not the formants that make
+			phonemes. Windytan's original ran on a Perl/SoX/csdr pipeline. This
+			version ports the same DSP to an AudioWorklet, with extra pitch,
+			timbre and trill controls.
+		</p>
+	</details>
+
+	<details class="faqitem">
+		<summary>
+			<span>Settings tips?</span>
+			<span class="faqsign" aria-hidden="true"></span>
+		</summary>
+		<p>
+			"Voice range" is the most important value, change it to fit your low
+			and high vocals. The "auto" button will try to guess it from the
+			media file.
+		</p>
+		<p>
+			Hitting "Randomize" is very fun. You can checkbox which values you
+			want randomized or kept.
+		</p>
+	</details>
+
+	<details class="faqitem">
+		<summary>
+			<span>Voice tips?</span>
+			<span class="faqsign" aria-hidden="true"></span>
+		</summary>
+		<p>
+			The best input is exaggerated spoken word, poetry, or slow song
+			acapellas. Try and make it rhythmic, like a bird song!
+		</p>
+		<p>
+			The conversion works best with clean vocals and no background noise.
+			But you can try adjusting the Equalizer curve to try and focus audio
+			range.
+		</p>
+	</details>
+
+	<details class="faqitem">
+		<summary>
+			<span>What birds can it do?</span>
+			<span class="faqsign" aria-hidden="true"></span>
+		</summary>
+		<p>
+			It can do birds with a clean voice: small singing birds, but also
+			some bigger ones like pigeon, cuckoo, owl. It cannot do ducks' croak
+			or crows' caw, they would need a different approach.
+		</p>
+	</details>
+</section>

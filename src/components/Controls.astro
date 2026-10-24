@@ -1,0 +1,557 @@
+---
+import img_blackbird from "../assets/birds/blackbird.jpg";
+// import img_warbler from "../assets/birds/warbler.png";
+import img_warbler from "../assets/birds/penochka-vesnichka.jpg";
+import img_canary from "../assets/birds/canary.jpg";
+import img_sparrow from "../assets/birds/sparrow.jpg";
+import img_owl from "../assets/birds/pigeon.jpg";
+---
+
+<section class="controls" data-bio="spikes" data-bio-group="settings">
+	<div class="grouphead">
+		<span>Mix</span><span class="randlabel">to randomize ↴&nbsp;&nbsp;</span
+		>
+	</div>
+
+	<div class="slider">
+		<span class="sname">
+			<button type="button" class="help" aria-label="About Dry / Wet"
+				>?</button
+			>
+			<label for="drywet">Dry / Wet</label>
+		</span>
+		<input id="drywet" type="range" min="0" max="100" value="100" />
+		<span class="svalue"><em id="v-drywet">100%</em></span>
+		<input
+			type="checkbox"
+			class="randbox"
+			data-rand="drywet"
+			aria-label="Include Dry / Wet when randomizing"
+			title="Include Dry / Wet when randomizing"
+		/>
+		<small>Blend input voice (0%) with birdsong (100%)</small>
+	</div>
+
+	<div class="slider">
+		<span class="sname">
+			<button type="button" class="help" aria-label="About Reverb"
+				>?</button
+			>
+			<label for="reverb">Reverb</label>
+		</span>
+		<input id="reverb" type="range" min="0" max="100" value="15" />
+		<span class="svalue"><em id="v-reverb">15%</em></span>
+		<input
+			type="checkbox"
+			class="randbox"
+			data-rand="reverb"
+			checked
+			aria-label="Include Reverb when randomizing"
+			title="Include Reverb when randomizing"
+		/>
+		<small>Everybody knows what reverb is</small>
+	</div>
+
+	<div class="presetsblock">
+		<div class="grouphead">
+			<span>Bird presets</span><span class="randlabel">click to load</span
+			>
+		</div>
+
+		<div class="presets" role="group" aria-label="Bird presets">
+			<button
+				class="preset"
+				data-preset="blackbird"
+				title="Blackbird (~1–3 kHz)"
+				aria-label="Blackbird preset"
+				type="button"
+			>
+				<img
+					src={img_blackbird.src}
+					alt=""
+					draggable="false"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button>
+			<button
+				class="preset"
+				data-preset="warbler"
+				title="Warbler (thin warble, ~2–8 kHz)"
+				aria-label="Warbler preset"
+				type="button"
+			>
+				<img
+					src={img_warbler.src}
+					alt=""
+					draggable="false"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button>
+			<button
+				class="preset"
+				data-preset="canary"
+				title="Canary (fast high trills, ~2–6 kHz)"
+				aria-label="Canary preset"
+				type="button"
+			>
+				<img
+					src={img_canary.src}
+					alt=""
+					draggable="false"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button>
+			<button
+				class="preset"
+				data-preset="sparrow"
+				title="Sparrow (chirps, ~2–6 kHz)"
+				aria-label="Sparrow preset"
+				type="button"
+			>
+				<img
+					src={img_sparrow.src}
+					alt=""
+					draggable="false"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button>
+			<!-- <button
+				class="preset"
+				data-preset="crow"
+				title="Crow — Harsh caw, roughly 0.5–1.5 kHz fundamental"
+				aria-label="Crow preset"
+				type="button"
+			>
+				<img
+					src={img_crow.src}
+					alt=""
+					draggable="false"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button> -->
+			<!-- <button
+				class="preset"
+				data-preset="duck"
+				title="Duck — Nasal quack, roughly 0.4–0.8 kHz fundamental"
+				aria-label="Duck preset"
+				type="button"
+			>
+				<img
+					src={img_duck.src}
+					alt=""
+					draggable="false"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button> -->
+			<button
+				class="preset"
+				data-preset="owl"
+				title="Owl or Pigeon (low hoot/coo, ~0.3–0.6 kHz)"
+				aria-label="Owl preset"
+				type="button"
+			>
+				<img
+					src={img_owl.src}
+					alt=""
+					draggable="false"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button>
+			<!-- <button
+				class="preset"
+				data-preset="trainhorn"
+				title="Train horn — A low, brassy non-bird character"
+				aria-label="Train horn preset"
+				type="button"
+			>
+				<img
+					src={img_blackbird.src}
+					alt=""
+					draggable="false"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button> -->
+			<!-- <button
+				class="preset"
+				data-preset="alien"
+				title="Alien — Wide, wobbly non-bird character"
+				aria-label="Alien preset"
+				type="button"
+			>
+				<img
+					src={img_blackbird.src}
+					alt=""
+					draggable="false"
+					loading="lazy"
+					decoding="async"
+				/>
+			</button> -->
+		</div>
+
+		<div class="grouphead">
+			<span>Bird voice</span><span class="randlabel"
+				>to randomize ↴&nbsp;&nbsp;</span
+			>
+		</div>
+
+		<div class="slider">
+			<span class="sname">
+				<button type="button" class="help" aria-label="About Pitch"
+					>?</button
+				>
+				<label for="pitch">Pitch</label>
+			</span>
+			<input
+				id="pitch"
+				type="range"
+				min="2000"
+				max="80000"
+				step="250"
+				value="24000"
+			/>
+			<span class="svalue"
+				><em id="v-pitch">6.0×</em><button
+					type="button"
+					class="auto"
+					data-auto="pitch"
+					title="Match the detected voice to a bright bird register"
+					aria-label="Match the detected voice to a bright bird register"
+					>a</button
+				></span
+			>
+			<input
+				type="checkbox"
+				class="randbox"
+				data-rand="pitch"
+				checked
+				aria-label="Include Pitch when randomizing"
+				title="Include Pitch when randomizing"
+			/>
+			<small
+				>How many times higher the bird sings than the tracked voice.
+				Slide up for tiny birds. Down for bigger deeper birds.</small
+			>
+		</div>
+
+		<div class="slider">
+			<span class="sname">
+				<button type="button" class="help" aria-label="About Timbre"
+					>?</button
+				>
+				<label for="timbre">Timbre</label>
+			</span>
+			<input
+				id="timbre"
+				type="range"
+				min="1"
+				max="12"
+				step="1"
+				value="1"
+			/>
+			<span class="svalue"><em id="v-timbre">1</em></span>
+			<input
+				type="checkbox"
+				class="randbox"
+				data-rand="timbre"
+				checked
+				aria-label="Include Timbre when randomizing"
+				title="Include Timbre when randomizing"
+			/>
+			<small>How many overtones are layered above the fundamental.</small>
+		</div>
+
+		<div class="slider">
+			<span class="sname">
+				<button type="button" class="help" aria-label="About Wave"
+					>?</button
+				>
+				<label for="wave">Wave</label>
+			</span>
+			<select id="wave"
+				><option value="sine" selected>sine</option><option
+					value="triangle">triangle</option
+				><option value="square">square</option><option value="saw"
+					>saw</option
+				></select
+			>
+			<span class="svalue"><em id="v-wave">sine</em></span>
+			<input
+				type="checkbox"
+				class="randbox"
+				data-rand="wave"
+				checked
+				aria-label="Include Wave when randomizing"
+				title="Include Wave when randomizing"
+			/>
+			<small>The overtone pattern the Timbre control counts up.</small>
+		</div>
+
+		<div class="slider">
+			<span class="sname">
+				<button
+					type="button"
+					class="help"
+					aria-label="About Trill depth">?</button
+				>
+				<label for="trill">Trill depth</label>
+			</span>
+			<input
+				id="trill"
+				type="range"
+				min="0"
+				max="100"
+				step="1"
+				value="0"
+			/>
+			<span class="svalue"><em id="v-trill">0%</em></span>
+			<input
+				type="checkbox"
+				class="randbox"
+				data-rand="trill"
+				checked
+				aria-label="Include Trill depth when randomizing"
+				title="Include Trill depth when randomizing"
+			/>
+			<small>Adds a fast pitch wobble</small>
+		</div>
+
+		<div class="slider">
+			<span class="sname">
+				<button type="button" class="help" aria-label="About Trill rate"
+					>?</button
+				>
+				<label for="trillrate">Trill rate</label>
+			</span>
+			<input
+				id="trillrate"
+				type="range"
+				min="4"
+				max="30"
+				step="1"
+				value="14"
+			/>
+			<span class="svalue"><em id="v-trillrate">14 Hz</em></span>
+			<input
+				type="checkbox"
+				class="randbox"
+				data-rand="trillrate"
+				checked
+				aria-label="Include Trill rate when randomizing"
+				title="Include Trill rate when randomizing"
+			/>
+			<small>How fast the trill wobbles</small>
+		</div>
+
+		<div class="grouphead">
+			<span>Voice tracking</span><span class="randlabel"
+				>to randomize ↴&nbsp;&nbsp;</span
+			>
+		</div>
+
+		<div class="slider">
+			<span class="sname">
+				<button
+					type="button"
+					class="help"
+					aria-label="About Voice range">?</button
+				>
+				<label for="shift">Voice range</label>
+			</span>
+			<input
+				id="shift"
+				type="range"
+				min="80"
+				max="600"
+				step="1"
+				value="220"
+			/>
+			<span class="svalue"
+				><em id="v-shift">220 Hz</em><button
+					type="button"
+					class="auto"
+					data-auto="shift"
+					title="Centre the tracker on the detected voice"
+					aria-label="Centre the tracker on the detected voice"
+					>a</button
+				></span
+			>
+			<input
+				type="checkbox"
+				class="randbox"
+				data-rand="shift"
+				checked
+				aria-label="Include Voice range when randomizing"
+				title="Include Voice range when randomizing"
+			/>
+			<small
+				>The part of the voice the tracker listens to. Change for low or
+				high voices.</small
+			>
+		</div>
+
+		<div class="slider">
+			<span class="sname">
+				<button type="button" class="help" aria-label="About Roughness"
+					>?</button
+				>
+				<label for="rough">Roughness</label>
+			</span>
+			<input
+				id="rough"
+				type="range"
+				min="60"
+				max="300"
+				step="5"
+				value="140"
+			/>
+			<span class="svalue"
+				><em id="v-rough">140 Hz</em><button
+					type="button"
+					class="auto"
+					data-auto="rough"
+					title="Set the tracking width from the detected pitch range"
+					aria-label="Set the tracking width from the detected pitch range"
+					>a</button
+				></span
+			>
+			<input
+				type="checkbox"
+				class="randbox"
+				data-rand="rough"
+				checked
+				aria-label="Include Roughness when randomizing"
+				title="Include Roughness when randomizing"
+			/>
+			<small
+				>How wide a slice of the voice is tracked. Wider catches more
+				overtones and sounds raspier, narrower stays cleaner.</small
+			>
+		</div>
+
+		<div class="slider">
+			<span class="sname">
+				<button type="button" class="help" aria-label="About Noise gate"
+					>?</button
+				>
+				<label for="gate">Noise gate</label>
+			</span>
+			<input
+				id="gate"
+				type="range"
+				min="0"
+				max="0.2"
+				step="0.005"
+				value="0"
+			/>
+			<span class="svalue"
+				><em id="v-gate">0%</em><button
+					type="button"
+					class="auto"
+					data-auto="gate"
+					title="Set the gate from the recording's noise floor"
+					aria-label="Set the gate from the recording's noise floor"
+					>a</button
+				></span
+			>
+			<input
+				type="checkbox"
+				class="randbox"
+				data-rand="gate"
+				checked
+				aria-label="Include Noise gate when randomizing"
+				title="Include Noise gate when randomizing"
+			/>
+			<small>Raise for noisy recordings.</small>
+		</div>
+
+		<div class="slider">
+			<span class="sname">
+				<button
+					type="button"
+					class="help"
+					aria-label="About Pitch response">?</button
+				>
+				<label for="pitchresp">Pitch response</label>
+			</span>
+			<input
+				id="pitchresp"
+				type="range"
+				min="20"
+				max="200"
+				step="5"
+				value="70"
+			/>
+			<span class="svalue"><em id="v-pitchresp">70 Hz</em></span>
+			<input
+				type="checkbox"
+				class="randbox"
+				data-rand="pitchresp"
+				checked
+				aria-label="Include Pitch response when randomizing"
+				title="Include Pitch response when randomizing"
+			/>
+			<small
+				>How closely the bird follows quick pitch changes. Low is
+				smooth, high is wobbly.</small
+			>
+		</div>
+
+		<div class="slider">
+			<span class="sname">
+				<button
+					type="button"
+					class="help"
+					aria-label="About Volume response">?</button
+				>
+				<label for="env">Vol. response</label>
+			</span>
+			<input
+				id="env"
+				type="range"
+				min="20"
+				max="200"
+				step="5"
+				value="70"
+			/>
+			<span class="svalue"><em id="v-env">70 Hz</em></span>
+			<input
+				type="checkbox"
+				class="randbox"
+				data-rand="env"
+				checked
+				aria-label="Include Volume response when randomizing"
+				title="Include Volume response when randomizing"
+			/>
+			<small
+				>How quickly the bird's loudness follows the voice. Low is
+				smooth, high is precise.</small
+			>
+		</div>
+
+		<div class="checkrow">
+			<label class="check"
+				><input id="autogain" type="checkbox" checked /> Normalize volume
+				<!-- <span class="checknote">normalise quiet recordings</span> -->
+			</label>
+			<label class="check"
+				><input id="grit" type="checkbox" checked /> 16-bit grit
+				<!-- <span class="checknote">subtle digital texture</span> -->
+			</label>
+		</div>
+		<button
+			id="randomize"
+			class="randomize-wide"
+			title="Randomize the ticked controls"
+			aria-label="Randomize"
+			type="button">Randomize</button
+		>
+	</div>
+</section>

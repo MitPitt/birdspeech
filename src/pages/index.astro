@@ -1,0 +1,103 @@
+---
+import "@fontsource/pt-sans/latin-400.css";
+import "@fontsource/pt-sans/latin-700.css";
+import "@fontsource/pt-sans-narrow/latin-400.css";
+import "@fontsource/pt-sans-narrow/latin-700.css";
+import "@fontsource/pt-sans-caption/latin-400.css";
+import "@fontsource/pt-sans-caption/latin-700.css";
+import "@fontsource/pt-serif/latin-400.css";
+import "@fontsource/pt-serif/latin-700.css";
+import "@fontsource/pt-serif-caption/latin-400.css";
+import "@fontsource/pt-mono/latin-400.css";
+import "../styles/app.css";
+import Hero from "../components/Hero.astro";
+import ExamplePresets from "../components/ExamplePresets.astro";
+import Dropzone from "../components/Dropzone.astro";
+import Meme from "../components/Meme.astro";
+import Player from "../components/Player.astro";
+import EqPanel from "../components/EqPanel.astro";
+import Transport from "../components/Transport.astro";
+import Controls from "../components/Controls.astro";
+import Faq from "../components/Faq.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import Plausible from "../components/Plausible.astro";
+
+const BASE = import.meta.env.BASE_URL;
+const SITE = "https://birdspeech.mitpit.com";
+const SITE_URL = `${SITE}${BASE}`;
+const OG_IMAGE = `${SITE}${BASE}og.jpg`;
+const DESCRIPTION = "Turn human voice into birdsong.";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href={`${BASE}favicon.svg`} />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={DESCRIPTION} />
+		<link rel="canonical" href={SITE_URL} />
+		<title>BIRDSPEECH</title>
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="BIRDSPEECH" />
+		<meta property="og:url" content={SITE_URL} />
+		<meta property="og:title" content="BIRDSPEECH" />
+		<meta property="og:description" content={DESCRIPTION} />
+		<meta property="og:image" content={OG_IMAGE} />
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:image:width" content="1079" />
+		<meta property="og:image:height" content="1106" />
+		<meta
+			property="og:image:alt"
+			content="Turn human voice into birdsong."
+		/>
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="BIRDSPEECH" />
+		<meta name="twitter:description" content={DESCRIPTION} />
+		<meta name="twitter:image" content={OG_IMAGE} />
+		<meta
+			name="twitter:image:alt"
+			content="Turn human voice into birdsong."
+		/>
+		<Plausible />
+	</head>
+	<body>
+		<div id="dragveil" class="dragveil" hidden>
+			<div class="dragveil-box">Drop audio or video to load</div>
+		</div>
+		<main class="app">
+			<div class="workspace">
+				<Hero />
+				<div class="sidebar">
+					<div
+						class="playlist"
+						data-bio="spikes"
+						data-bio-group="sidebar"
+					>
+						<ExamplePresets>
+							<Dropzone />
+						</ExamplePresets>
+					</div>
+					<Meme />
+				</div>
+				<div class="center">
+					<div class="stage" data-bio="spikes" data-bio-group="stage">
+						<Player />
+						<Transport />
+						<EqPanel />
+					</div>
+					<div class="closing">
+						<Faq />
+						<SiteFooter />
+					</div>
+				</div>
+				<Controls />
+			</div>
+		</main>
+
+		<script>
+			import "../scripts/app.js";
+			import "../scripts/bio.ts";
+		</script>
+	</body>
+</html>

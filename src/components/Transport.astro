@@ -1,0 +1,120 @@
+---
+import smallBird from "../assets/vol/small.png";
+import bigBird from "../assets/vol/big.png";
+import micIcon from "../assets/icons/mic.svg";
+---
+
+<section class="scrubrow">
+	<span id="curtime" class="time">0:00</span>
+	<div class="wavewrap">
+		<canvas id="waveform" aria-hidden="true"></canvas>
+		<span class="wavehint">drop file, record mic, or pick sample</span>
+		<input
+			id="progress"
+			type="range"
+			min="0"
+			max="1000"
+			value="0"
+			step="1"
+			aria-label="Seek"
+			disabled
+		/>
+	</div>
+	<span id="durtime" class="time">0:00</span>
+</section>
+
+<section class="transport">
+	<button
+		id="play"
+		class="playbtn"
+		type="button"
+		title="Play"
+		aria-label="Play"
+		disabled
+	>
+		<svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true">
+			<path d="M7.5 5v14l11-7z"></path>
+		</svg>
+		<svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+			<rect x="6" y="5" width="4" height="14" rx="1"></rect>
+			<rect x="14" y="5" width="4" height="14" rx="1"></rect>
+		</svg>
+	</button>
+	<div class="vol">
+		<img
+			class="volbird volbird-small"
+			src={smallBird.src}
+			width={smallBird.width}
+			height={smallBird.height}
+			alt=""
+		/>
+		<label class="volslider" title="Master volume">
+			<input
+				id="volume"
+				type="range"
+				min="0"
+				max="100"
+				value="80"
+				aria-label="Volume"
+			/>
+			<svg
+				class="volshape"
+				viewBox="0 0 120 48"
+				preserveAspectRatio="none"
+				aria-hidden="true"
+			>
+				<polygon points="0.5,47.5 119.5,0.5 119.5,47.5"></polygon>
+			</svg>
+		</label>
+		<button
+			id="volmax"
+			class="volmax"
+			type="button"
+			title="Max volume"
+			aria-label="Max volume"
+		>
+			<img
+				class="volbird volbird-big"
+				src={bigBird.src}
+				width={bigBird.width}
+				height={bigBird.height}
+				alt=""
+			/>
+		</button>
+	</div>
+	<div class="transportviz" aria-hidden="true">
+		<canvas id="transportwave"></canvas>
+	</div>
+	<button
+		id="record"
+		class="recbtn"
+		type="button"
+		title="Record from microphone"
+		aria-label="Record from microphone"
+		style={`--mic-icon: url('${micIcon.src}')`}
+	>
+		<span class="recicon" aria-hidden="true"></span>
+	</button>
+	<span class="exportgroup">
+		<button
+			id="makewav"
+			class="action"
+			type="button"
+			title="Export WAV"
+			aria-label="Export WAV"
+			disabled
+		>
+			<span class="fill"></span><span class="lbl">WAV</span>
+		</button>
+		<button
+			id="makemp3"
+			class="action"
+			type="button"
+			title="Export MP3"
+			aria-label="Export MP3"
+			disabled
+		>
+			<span class="fill"></span><span class="lbl">MP3</span>
+		</button>
+	</span>
+</section>

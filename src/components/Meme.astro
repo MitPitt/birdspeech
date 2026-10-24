@@ -1,0 +1,56 @@
+---
+const modules = import.meta.glob(
+	"../assets/memes/*.{jpg,jpeg,png,gif,webp,avif}",
+	{
+		eager: true,
+		query: "?url",
+		import: "default",
+	},
+);
+const memes = Object.keys(modules)
+	.sort()
+	.map((key) => modules[key]);
+---
+
+{
+	memes.length > 0 && (
+		<section
+			class="meme"
+			aria-label="Bird"
+			data-bio="spikes"
+			data-bio-group="sidebar"
+		>
+			<button
+				class="memebtn"
+				type="button"
+				aria-label="next"
+				data-memes={JSON.stringify(memes)}
+			>
+				<img alt="Bird" draggable="false" />
+			</button>
+		</section>
+	)
+}
+
+<script>
+	const buttons = document.querySelectorAll(".memebtn");
+	buttons.forEach((btn) => {
+		const img = btn.querySelector("img");
+		const memes = JSON.parse(btn.dataset.memes || "[]");
+		let index = 0;
+		if (img && memes.length > 0) {
+			index = Math.floor(Math.random() * memes.length);
+			img.alt = `${index + 1}`;
+			const reveal = () => img.classList.add("is-ready");
+			img.addEventListener("load", reveal, { once: true });
+			img.src = memes[index];
+			if (img.complete) reveal();
+		}
+		btn.addEventListener("click", () => {
+			if (!img || memes.length < 2) return;
+			index = (index + 1) % memes.length;
+			img.src = memes[index];
+			img.alt = `${index + 1}`;
+		});
+	});
+</script>
