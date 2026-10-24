@@ -220,4 +220,5 @@ npm run thumbnails # regenerate example card thumbnails (requires ffmpeg)
   Oona Räisänen (windytan), 2021.
 - DSP primitives derived from [csdr](https://github.com/ha7ilm/csdr)  and  [SoX](https://sox.sourceforge.net/).
 - Browser MP3 export uses [@breezystack/lamejs](https://www.npmjs.com/package/@breezystack/lamejs).
+- Visualizer is [ShowCQT](https://github.com/mfcc64/showcqt-js)
 - The wacky spike-growing interface is my [Biomorphic UI](https://github.com/MitPitt/biomorphic-ui) experiment.
